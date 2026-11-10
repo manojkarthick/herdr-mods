@@ -92,6 +92,17 @@
               "window_drag": true
             },
             {
+              "id": "gtr",
+              "type": "block",
+              "size": {
+                "px": 92
+              },
+              "window_drag": true,
+              "content": {
+                "mod": "gtr"
+              }
+            },
+            {
               "id": "zed",
               "type": "block",
               "size": {
