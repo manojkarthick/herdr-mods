@@ -1,0 +1,3 @@
+# Herdr writes these into every mod folder; they're regenerated, not ours.
+gpui-kit.d.ts
+jsconfig.json
