@@ -92,6 +92,17 @@
               "window_drag": true
             },
             {
+              "id": "pr-toggle",
+              "type": "block",
+              "size": {
+                "px": 61
+              },
+              "window_drag": true,
+              "content": {
+                "mod": "pr-toggle"
+              }
+            },
+            {
               "id": "gtr",
               "type": "block",
               "size": {
@@ -106,7 +117,7 @@
               "id": "zed",
               "type": "block",
               "size": {
-                "px": 64
+                "px": 68
               },
               "window_drag": true,
               "content": {
@@ -180,6 +191,18 @@
               "min": 280,
               "max": 900,
               "hidden": true
+            },
+            {
+              "id": "pr-flow",
+              "type": "block",
+              "size": {
+                "px": 340
+              },
+              "min": 280,
+              "max": 600,
+              "content": {
+                "mod": "pr-flow"
+              }
             }
           ],
           "padding": 8,

@@ -41,8 +41,8 @@ export default class Zed extends View {
     }
     // Sits beside the shipped `tabs` block, so it copies that bar's
     // background and bottom border to read as one strip.
-    return h_flex().size_full().pr(10).items_center().justify_end().bg(t.chrome).border_b(1).border_color(t.border)
-      .child(h_flex().id("open-in-zed").h(26).px(8).gap(5).flex_none().items_center().rounded(6)
+    return h_flex().size_full().items_center().bg(t.chrome).border_b(1).border_color(t.border)
+      .child(h_flex().id("open-in-zed").h(26).px(8).gap(7).flex_none().items_center().rounded(6)
         .text_size(12).bg(t.chrome).text_color(t.muted)
         .hover((s) => s.bg(t.hover).text_color(t.foreground))
         // The block is a window-drag area; keep presses on the button.
