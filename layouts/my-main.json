@@ -123,6 +123,17 @@
               "content": {
                 "mod": "zed"
               }
+            },
+            {
+              "id": "recherche",
+              "type": "block",
+              "size": {
+                "px": 116
+              },
+              "window_drag": true,
+              "content": {
+                "mod": "recherche"
+              }
             }
           ]
         },

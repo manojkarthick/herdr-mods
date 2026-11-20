@@ -19,6 +19,7 @@
     "cmd-shift-p": "app.palette",
     "cmd-shift-e": "mod.open:zed",
     "cmd-shift-g": "mod.open:gtr",
+    "cmd-shift-f": "mod.open:recherche",
     "cmd-,": "app.settings",
     "cmd-d": "pane.split:right",
     "cmd-shift-d": "pane.split:down",
