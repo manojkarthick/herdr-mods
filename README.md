@@ -10,7 +10,7 @@ Install Herdr first. Its installer creates `~/.config/herdr-app` and the mods th
 make install
 ```
 
-This symlinks the files below into `~/.config/herdr-app`, so edits here apply right away. It leaves Herdr's shipped mods alone. Run `make help` to list the targets.
+This symlinks the files below into `~/.config/herdr-app`, so edits here apply right away. It leaves Herdr's shipped mods alone. `make uninstall` removes only the links that point into this checkout. Run `make help` to list the targets.
 
 ## What's here
 
