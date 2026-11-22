@@ -1,0 +1,15 @@
+{
+  "pr-flow": {
+    "repo": "jjangsky/herdr-pr-flow",
+    "track": "release",
+    "ref": "v0.6.0",
+    "commit": "87b430aca1c530306631e3c0c481880fcb839a0f",
+    "copy": "mods/pr-flow"
+  },
+  "herdr-t3": {
+    "repo": "JinJieBeWater/herdr-t3",
+    "track": "main",
+    "commit": "4d2b40a8f938c32f3c8b5c1dbfe1dcc4e029ef8e",
+    "install": "scripts/update.sh"
+  }
+}
