@@ -1,6 +1,7 @@
 HERDR_DIR := $(HOME)/.config/herdr-app
 FILES := keys.json settings.json programs.json $(wildcard layouts/*.json)
-MODS := $(notdir $(wildcard mods/*))
+# Only folders with a mod.json: a removed mod leaves a folder behind holding just the files Herdr generated.
+MODS := $(patsubst mods/%/mod.json,%,$(wildcard mods/*/mod.json))
 
 .DEFAULT_GOAL := help
 .PHONY: help install uninstall update
