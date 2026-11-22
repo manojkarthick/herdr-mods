@@ -1,0 +1,32 @@
+name: Update third-party mods
+
+on:
+  schedule:
+    - cron: "0 15 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make update
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_SUMMARY: ${{ runner.temp }}/summary.md
+      - run: |
+          {
+            echo 'Pins in `vendor.json` moved by `make update`. After merging, run `make install`.'
+            echo
+            cat "$RUNNER_TEMP/summary.md" 2>/dev/null || true
+          } > "$RUNNER_TEMP/body.md"
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          branch: update-mods
+          commit-message: "chore: update third-party mods"
+          title: "chore: update third-party mods"
+          body-path: ${{ runner.temp }}/body.md
