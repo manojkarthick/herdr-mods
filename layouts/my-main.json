@@ -212,7 +212,11 @@
               "min": 280,
               "max": 600,
               "content": {
-                "mod": "pr-flow"
+                "mod": "pr-flow",
+                "props": {
+                  "merge": "squash",
+                  "mine": true
+                }
               }
             }
           ],
