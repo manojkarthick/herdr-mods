@@ -38,10 +38,13 @@ Mods by other people aren't kept in this repo. `vendor.json` pins each one to a 
 | --- | --- | --- | --- |
 | `pr-flow` | [jjangsky/herdr-pr-flow](https://github.com/jjangsky/herdr-pr-flow) | latest release | copying its `mods/pr-flow` |
 | `herdr-t3` | [JinJieBeWater/herdr-t3](https://github.com/JinJieBeWater/herdr-t3) | `main` | its own `scripts/update.sh` (the `t3-*` mods, the `herdr-t3` layout and its keys) |
+| `cursor-status` | [juliorr/herdr-cursor-status](https://github.com/juliorr/herdr-cursor-status) | `main` | copying its `mods/cursor-status`, then running its `status.mjs install` |
 
 `make update` moves the pins to the newest release or commit; run `make install` afterwards to apply them. A weekly GitHub Action runs `make update` and opens a PR with the release notes or new changelog lines.
 
 herdr-t3's installer merges its bindings into `keys.json`, but `make install` links this repo's `keys.json` back over it. Copy the bindings you want into `keys.json`; install prints how many differ.
+
+cursor-status reports Cursor Agent CLI (`cursor-agent`) status to the desktop app's Agents panel, which Cursor doesn't do itself. `make install` needs Node 20 or later for it. Its installer adds hooks to `~/.cursor/hooks.json`, after any hooks already there, and backs up the original on the first change; `make uninstall` removes those hooks before it removes the mod. Restart running Cursor sessions to load the hooks, and check them with `node ~/.config/herdr-app/mods/cursor-status/status.mjs doctor`. Cursor has no hook for permission prompts, so a session waiting for approval shows as working.
 
 ## Checking mods
 

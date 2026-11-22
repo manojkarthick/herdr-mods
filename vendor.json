@@ -11,5 +11,13 @@
     "track": "main",
     "commit": "4d2b40a8f938c32f3c8b5c1dbfe1dcc4e029ef8e",
     "install": "scripts/update.sh"
+  },
+  "cursor-status": {
+    "repo": "juliorr/herdr-cursor-status",
+    "track": "main",
+    "commit": "147971e501580cb48b06931c0484e7f0357a5b5d",
+    "copy": "mods/cursor-status",
+    "install": "node status.mjs install",
+    "uninstall": "node status.mjs uninstall"
   }
 }

@@ -3,8 +3,9 @@
 #   update     moves each pin to the newest release, or the newest commit on the tracked branch.
 #              It changes only vendor.json. With UPDATE_SUMMARY set, it appends a Markdown summary there.
 #   install    fetches each pinned commit and puts it into Herdr: "copy" copies one folder into mods/,
-#              "install" runs the mod's own installer.
-#   uninstall  removes the folders that install copied. Installer-run mods are left alone.
+#              then the "install" command runs, in the copied folder if there is one, else in the checkout.
+#   uninstall  runs each copied mod's "uninstall" command in its folder, then removes the folder.
+#              Mods without a copy are left alone.
 set -eu
 root=$(cd "$(dirname "$0")/.." && pwd)
 pins="$root/vendor.json"
@@ -69,7 +70,7 @@ fetch() {
 install() {
   for n in $(jq -r 'keys_unsorted[]' "$pins"); do
     fetch "$n"
-    src="$cache/$n" copy=$(get "$n" copy) script=$(get "$n" install)
+    dst= src="$cache/$n" copy=$(get "$n" copy) cmd=$(get "$n" install)
     version=$(get "$n" ref)
     version=${version:-$(get "$n" track)@$(get "$n" commit | cut -c1-7)}
     if [ -n "$copy" ]; then
@@ -81,9 +82,10 @@ install() {
       rsync -a --delete --exclude gpui-kit.d.ts --exclude jsconfig.json "$src/$copy/" "$dst/"
       say copied "$n $version"
     fi
-    if [ -n "$script" ]; then
-      say running "$n $version: $script"
-      HERDR_APP_HOME="$app" "$src/$script"
+    if [ -n "$cmd" ]; then
+      say running "$n $version: $cmd"
+      # In the copy, not the cache, since what it sets up may point back at its own files.
+      (cd "${dst:-$src}" && HERDR_APP_HOME="$app" sh -c "$cmd")
       # The installer merges its keys into keys.json, which make install links back to ours afterwards.
       if [ -f "$src/keys.json" ]; then
         jq -r --slurpfile mine "$root/keys.json" --arg n "$n" --arg f "$src/keys.json" '
@@ -101,7 +103,11 @@ uninstall() {
     copy=$(get "$n" copy)
     [ -n "$copy" ] || continue
     dst="$app/mods/$(basename "$copy")"
-    if [ -d "$dst" ] && [ ! -L "$dst" ]; then rm -r "$dst" && say removed "mods/$(basename "$copy")"; fi
+    if [ -d "$dst" ] && [ ! -L "$dst" ]; then
+      cmd=$(get "$n" uninstall)
+      if [ -n "$cmd" ]; then say running "$n: $cmd"; (cd "$dst" && HERDR_APP_HOME="$app" sh -c "$cmd"); fi
+      rm -r "$dst" && say removed "mods/$(basename "$copy")"
+    fi
   done
 }
 
