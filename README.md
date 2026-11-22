@@ -53,3 +53,7 @@ After changing a mod, check it with:
 ```bash
 herdr-app check mods/<name>
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE). The third-party mods that `make install` fetches keep their own licenses.
