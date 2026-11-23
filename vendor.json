@@ -9,7 +9,7 @@
   "herdr-t3": {
     "repo": "JinJieBeWater/herdr-t3",
     "track": "main",
-    "commit": "4d2b40a8f938c32f3c8b5c1dbfe1dcc4e029ef8e",
+    "commit": "f97686c5acbc8121f836943c24824bf37a78db08",
     "install": "scripts/update.sh"
   },
   "cursor-status": {
