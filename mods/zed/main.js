@@ -4,7 +4,7 @@ import { exec, focused, spaces, props, closeOverlay, notify, theme } from "herdr
 
 // Opens the focused terminal's live folder in Zed. Two ways in:
 // - a layout block: draws a tab-bar button;
-// - `mod.open:zed` (a key): opens as a popup, launches Zed, closes itself.
+// - `mod.open:zed` (a key or the command palette): opens as a popup, launches Zed, closes itself.
 
 async function openInZed() {
   const f = focused();

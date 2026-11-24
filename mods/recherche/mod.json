@@ -1,1 +1,19 @@
-{ "place": "none", "title": "Recherche", "overlay": { "kind": "popup", "at": "top", "offset": 40, "width": 680, "height": 0.8 } }
+{
+  "place": "none",
+  "title": "Recherche",
+  "overlay": {
+    "kind": "popup",
+    "at": "top",
+    "offset": 40,
+    "width": 680,
+    "height": 0.8
+  },
+  "palette": [
+    {
+      "title": "Search session history",
+      "command": "mod.open",
+      "args": { "name": "recherche" },
+      "words": "agent sessions transcript resume"
+    }
+  ]
+}
