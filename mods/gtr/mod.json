@@ -1,1 +1,17 @@
-{ "place": "none", "title": "New gtr worktree", "overlay": { "kind": "dialog", "width": 460, "height": 200 } }
+{
+  "place": "none",
+  "title": "New gtr worktree",
+  "overlay": {
+    "kind": "dialog",
+    "width": 460,
+    "height": 200
+  },
+  "palette": [
+    {
+      "title": "New gtr worktree",
+      "command": "mod.open",
+      "args": { "name": "gtr" },
+      "words": "create git gtr new worktree branch"
+    }
+  ]
+}

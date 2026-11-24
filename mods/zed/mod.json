@@ -1,1 +1,19 @@
-{ "place": "none", "title": "Zed", "overlay": { "kind": "popup", "at": "top", "offset": 40, "width": 360, "height": 44 } }
+{
+  "place": "none",
+  "title": "Zed",
+  "overlay": {
+    "kind": "popup",
+    "at": "top",
+    "offset": 40,
+    "width": 360,
+    "height": 44
+  },
+  "palette": [
+    {
+      "title": "Open in Zed",
+      "command": "mod.open",
+      "args": { "name": "zed" },
+      "words": "editor folder directory"
+    }
+  ]
+}

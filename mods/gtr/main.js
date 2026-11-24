@@ -2,7 +2,7 @@
 // opens a space on the new checkout. Going through gtr gets its config for
 // free: gtr.worktrees.dir, gtr.copy.include (.envrc, .env, ...), the default
 // base branch and post-create hooks. Two ways in:
-// - `mod.open:gtr` (a key): opens as the dialog;
+// - `mod.open:gtr` (a key or the command palette): opens as the dialog;
 // - a layout block: draws a tab-bar button that opens the dialog.
 
 import { View, div, svg } from "gpui-kit";
